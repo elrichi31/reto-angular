@@ -7,35 +7,37 @@
     </a>
   </div>
 
-  <table class="products-table">
-    <thead>
-      <tr>
-        <th>Logo</th>
-        <th>Nombre del producto</th>
-        <th>Descripción</th>
-        <th>Fecha de liberación</th>
-        <th>Fecha de restructuración</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of filteredProducts">
-        <td><img [src]="product.logo" alt="logo" class="logo" /></td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.date_release }}</td>
-        <td>{{ product.date_revision }}</td>
-        <td class="actions">
-          <div class="dropdown">
-            <div style="display: flex;">
-              <div class="menu-item" (click)="editProduct(product)">Editar</div>
-              <div class="menu-item" (click)="promptDelete(product)">Eliminar</div>            
+  <div style="overflow-x: auto;"> 
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Nombre del producto</th>
+          <th>Descripción</th>
+          <th>Fecha de liberación</th>
+          <th>Fecha de restructuración</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredProducts">
+          <td><img [src]="product.logo" alt="logo" class="logo" /></td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.date_release }}</td>
+          <td>{{ product.date_revision }}</td>
+          <td class="actions">
+            <div class="dropdown">
+              <div style="display: flex;">
+                <div class="menu-item" (click)="editProduct(product)">Editar</div>
+                <div class="menu-item" (click)="promptDelete(product)">Eliminar</div>            
+              </div>
             </div>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="footer">
     <p>{{ filteredProducts.length }} Resultados</p>
