@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  showModal = false
+  productToDelete: Product | null = null
   allProducts: Product[] = [];
   filteredProducts: Product[] = [];
   searchText = '';
@@ -52,19 +54,6 @@ export class ProductListComponent implements OnInit {
     console.log('Editar:', product);
   }
 
-  confirmDelete(id: string) {
-    const confirmed = confirm('¿Estás seguro de que deseas eliminar este producto?');
-    if (confirmed) {
-      this.productService.deleteProduct(id).subscribe({
-        next: () => {
-          this.allProducts = this.allProducts.filter(p => p.id !== id);
-          this.applyFilters();
-        },
-        error: (err: any) => console.error('Error al eliminar producto:', err)
-      });
-    }
-  }
-
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent) {
     const target = event.target as HTMLElement;
@@ -72,6 +61,29 @@ export class ProductListComponent implements OnInit {
     // Cierra si el click no fue dentro de un icono o dropdown
     if (!target.closest('.dropdown')) {
       this.activeMenu = null;
+    }
+  }
+
+  promptDelete(product: Product) {
+    this.productToDelete = product;
+    this.showModal = true;
+  }
+  
+  cancelDelete() {
+    this.showModal = false;
+    this.productToDelete = null;
+  }
+  
+  confirmDelete() {
+    if (this.productToDelete) {
+      this.productService.deleteProduct(this.productToDelete.id).subscribe({
+        next: () => {
+          this.allProducts = this.allProducts.filter(p => p.id !== this.productToDelete?.id);
+          this.applyFilters();
+          this.cancelDelete()
+        },
+        error: (err: any) => console.error('Error al eliminar producto:', err)
+      });;
     }
   }
 

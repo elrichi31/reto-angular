@@ -59,3 +59,11 @@ button[type="button"] {
   display: flex;
   gap: 20px
 }
+
+.form-buttons{
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px
+}

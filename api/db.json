@@ -25,36 +25,12 @@
       "date_revision": "2024-03-01"
     },
     {
-      "id": "345345",
-      "name": "Targeta 25",
-      "description": "Cuenta bancaria para manejar tu dinero",
+      "id": "596",
+      "name": "Targeta 6952",
+      "description": "ghgfhhgfhgfggfhgf",
       "logo": "https://www.visa.com.ec/dam/VCOM/regional/lac/SPA/Default/Pay%20With%20Visa/Tarjetas/visa-signature-400x225.jpg",
-      "date_release": "2025-05-07",
-      "date_revision": "2026-05-07"
-    },
-    {
-      "id": "345345",
-      "name": "Targeta 22",
-      "description": "lalalalallalalalala",
-      "logo": "howdcvfdfsdfsdf",
-      "date_release": "2025-05-06",
-      "date_revision": "2026-05-06"
-    },
-    {
-      "id": "345345",
-      "name": "Targeta 25",
-      "description": "lalalalallalalalala",
-      "logo": "howdcvfdfsdfsdf",
-      "date_release": "2025-05-06",
-      "date_revision": "2026-05-06"
-    },
-    {
-      "id": "345345",
-      "name": "Targeta 25",
-      "description": "lalalalallalalalala",
-      "logo": "howdcvfdfsdfsdf",
-      "date_release": "2025-05-06",
-      "date_revision": "2026-05-06"
+      "date_release": "2025-05-08",
+      "date_revision": "2026-05-08"
     }
   ]
 }

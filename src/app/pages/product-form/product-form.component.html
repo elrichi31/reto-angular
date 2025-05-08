@@ -6,7 +6,7 @@
         <div class="labels-container">
             <div class="input-container">
                 <label>ID</label>
-                <input type="text" [(ngModel)]="product.id" name="id" [class.error]="errors.id">
+                <input [readonly]=idOriginal type="text" [(ngModel)]="product.id" name="id" [class.error]="errors.id">
                 <div class="error-message" *ngIf="errors.id">{{ errors.id }}</div>
             </div>
             <div class="input-container">
@@ -50,4 +50,8 @@
             <button type="button" (click)="resetForm()">Reiniciar</button>
         </div>
     </form>
+</div>
+
+<div class="form-buttons">
+    <button type='button' class="btn-back" (click)="goBack()">Atras</button>
 </div>

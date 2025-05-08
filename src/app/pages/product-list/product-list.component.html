@@ -27,10 +27,9 @@
         <td>{{ product.date_revision }}</td>
         <td class="actions">
           <div class="dropdown">
-            <i class="fas fa-ellipsis-v" (click)="toggleMenu(product.id); $event.stopPropagation()"></i>
-            <div *ngIf="activeMenu === product.id" class="dropdown-menu" (click)="$event.stopPropagation()">
+            <div style="display: flex;">
               <div class="menu-item" (click)="editProduct(product)">Editar</div>
-              <div class="menu-item" (click)="confirmDelete(product.id)">Eliminar</div>
+              <div class="menu-item" (click)="promptDelete(product)">Eliminar</div>            
             </div>
           </div>
         </td>
@@ -43,5 +42,15 @@
     <select [(ngModel)]="itemsToShow" (change)="applyFilters()">
       <option *ngFor="let opt of [5, 10, 20]" [value]="opt">{{ opt }}</option>
     </select>
+  </div>
+</div>
+
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal">
+    <p>¿Deseas eliminar este producto {{ productToDelete?.name }}?</p>
+    <div class="buttons-div">
+      <button class="cancel" (click)="cancelDelete()">Cancelar</button>
+      <button class="confirm" (click)="confirmDelete()">Eliminar</button>
+    </div>
   </div>
 </div>

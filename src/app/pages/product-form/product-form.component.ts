@@ -114,4 +114,8 @@ export class ProductFormComponent {
       });
     }
   }
+
+  goBack(){
+    this.router.navigate(['/'])
+  }
 }
