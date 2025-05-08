@@ -1,0 +1,53 @@
+<div class="form-container">
+    <h2 style="text-align: center;">Formulario de Registro</h2>
+
+    <form (ngSubmit)="submit()" novalidate>
+
+        <div class="labels-container">
+            <div class="input-container">
+                <label>ID</label>
+                <input type="text" [(ngModel)]="product.id" name="id" [class.error]="errors.id">
+                <div class="error-message" *ngIf="errors.id">{{ errors.id }}</div>
+            </div>
+            <div class="input-container">
+                <label>Nombre</label>
+                <input type="text" [(ngModel)]="product.name" name="name" [class.error]="errors.name">
+                <div class="error-message" *ngIf="errors.name">{{ errors.name }}</div>
+            </div>
+        </div>
+
+        <div class="labels-container">
+            <div class="input-container">
+                <label>Descripción</label>
+                <input type="text" [(ngModel)]="product.description" name="description" [class.error]="errors.description">
+                <div class="error-message" *ngIf="errors.description">{{ errors.description }}</div>
+            </div>
+            <div class="input-container">
+                <label>Logo (URL)</label>
+                <input type="text" [(ngModel)]="product.logo" name="logo" [class.error]="errors.logo">
+                <div class="error-message" *ngIf="errors.logo">{{ errors.logo }}</div>
+            </div>
+        </div>
+
+        <div  class="labels-container">
+            <div class="input-container">
+                <label>Fecha de Liberación</label>
+                <input type="date" [(ngModel)]="product.date_release" name="date_release" [class.error]="errors.date_release">
+                <div class="error-message" *ngIf="errors.date_release">{{ errors.date_release }}</div>
+            </div>
+    
+            <div class="input-container">
+                <label>Fecha de Revisión</label>
+                <input type="date" [(ngModel)]="product.date_revision" name="date_revision"
+                    [class.error]="errors.date_revision">
+                <div class="error-message" *ngIf="errors.date_revision">{{ errors.date_revision }}</div>
+            </div>
+        </div>
+
+
+        <div class="buttons">
+            <button type="submit">Agregar</button>
+            <button type="button" (click)="resetForm()">Reiniciar</button>
+        </div>
+    </form>
+</div>

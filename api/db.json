@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": "2",
+      "name": "Tarjeta de Débito Visa",
+      "description": "Tarjeta para consumos con débito inmediato",
+      "logo": "https://www.visa.com.ec/dam/VCOM/regional/lac/SPA/Default/Pay%20With%20Visa/Tarjetas/visa-signature-400x225.jpg",
+      "date_release": "2023-05-01",
+      "date_revision": "2024-05-01"
+    },
+    {
+      "id": "3",
+      "name": "Cuenta de Ahorros",
+      "description": "Cuenta bancaria para ahorrar con intereses",
+      "logo": "https://www.visa.com.ec/dam/VCOM/regional/lac/SPA/Default/Pay%20With%20Visa/Tarjetas/visa-signature-400x225.jpg",
+      "date_release": "2023-01-01",
+      "date_revision": "2024-01-01"
+    },
+    {
+      "id": "4",
+      "name": "Cuenta Corriente",
+      "description": "Cuenta bancaria para manejar tu dinero",
+      "logo": "https://www.visa.com.ec/dam/VCOM/regional/lac/SPA/Default/Pay%20With%20Visa/Tarjetas/visa-signature-400x225.jpg",
+      "date_release": "2023-03-01",
+      "date_revision": "2024-03-01"
+    },
+    {
+      "id": "345345",
+      "name": "Targeta 25",
+      "description": "Cuenta bancaria para manejar tu dinero",
+      "logo": "https://www.visa.com.ec/dam/VCOM/regional/lac/SPA/Default/Pay%20With%20Visa/Tarjetas/visa-signature-400x225.jpg",
+      "date_release": "2025-05-07",
+      "date_revision": "2026-05-07"
+    },
+    {
+      "id": "345345",
+      "name": "Targeta 22",
+      "description": "lalalalallalalalala",
+      "logo": "howdcvfdfsdfsdf",
+      "date_release": "2025-05-06",
+      "date_revision": "2026-05-06"
+    },
+    {
+      "id": "345345",
+      "name": "Targeta 25",
+      "description": "lalalalallalalalala",
+      "logo": "howdcvfdfsdfsdf",
+      "date_release": "2025-05-06",
+      "date_revision": "2026-05-06"
+    },
+    {
+      "id": "345345",
+      "name": "Targeta 25",
+      "description": "lalalalallalalalala",
+      "logo": "howdcvfdfsdfsdf",
+      "date_release": "2025-05-06",
+      "date_revision": "2026-05-06"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<div class="container">
+  <div class=search-div>
+    <input type="text" placeholder="Buscar productos..." [(ngModel)]="searchText" (input)="applyFilters()"
+      class="search-input" />
+    <a href="/form">
+      <button class=buttons>Agregar</button>
+    </a>
+  </div>
+
+  <table class="products-table">
+    <thead>
+      <tr>
+        <th>Logo</th>
+        <th>Nombre del producto</th>
+        <th>Descripción</th>
+        <th>Fecha de liberación</th>
+        <th>Fecha de restructuración</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filteredProducts">
+        <td><img [src]="product.logo" alt="logo" class="logo" /></td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.date_release }}</td>
+        <td>{{ product.date_revision }}</td>
+        <td class="actions">
+          <div class="dropdown">
+            <i class="fas fa-ellipsis-v" (click)="toggleMenu(product.id); $event.stopPropagation()"></i>
+            <div *ngIf="activeMenu === product.id" class="dropdown-menu" (click)="$event.stopPropagation()">
+              <div class="menu-item" (click)="editProduct(product)">Editar</div>
+              <div class="menu-item" (click)="confirmDelete(product.id)">Eliminar</div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <p>{{ filteredProducts.length }} Resultados</p>
+    <select [(ngModel)]="itemsToShow" (change)="applyFilters()">
+      <option *ngFor="let opt of [5, 10, 20]" [value]="opt">{{ opt }}</option>
+    </select>
+  </div>
+</div>
