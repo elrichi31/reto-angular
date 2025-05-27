@@ -1,59 +1,76 @@
-# FinancialProducts
+# 📦 Product Management App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+Esta es una aplicación web diseñada para gestionar productos. Permite **crear, editar, listar y validar productos**, incluyendo campos como ID, nombre, descripción, fecha de liberación, fecha de revisión y logo. Está desarrollada en **Angular** para el frontend y utiliza **JSON Server** como backend simulado.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 ¿Qué hace esta app?
+
+- 📄 Muestra una lista de productos registrados.
+- 📝 Permite agregar o editar productos con validaciones específicas.
+- 📆 Calcula automáticamente la fecha de revisión (1 año después de la fecha de liberación).
+- 🔍 Permite aplicar filtros y paginación.
+
+---
+
+## 🛠️ Requisitos previos
+
+- Node.js instalado
+- NPM instalado
+
+---
+
+## ⚙️ Levantar el servidor API (JSON Server)
+
+1. Abre una terminal y navega a la carpeta raíz del proyecto.
+2. Entra al directorio `api`:
+
+   ```bash
+   cd api
+````
+
+3. Ejecuta el servidor con:
+
+   ```bash
+   json-server --watch db.json --port 3000
+   ```
+
+   Esto iniciará una API RESTful en `http://localhost:3000`.
+
+---
+
+## 🖥️ Levantar el frontend (Angular)
+
+Desde otra terminal:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Luego abre `http://localhost:4200` en tu navegador.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📁 Estructura básica del proyecto
 
-```bash
-ng generate component component-name
+```
+/api
+  └── db.json             # Base de datos falsa para JSON Server
+/src
+  └── app/
+      └── product-form/   # Componente del formulario de productos
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## ✅ Notas adicionales
 
-## Building
+* Si editas `db.json`, recuerda reiniciar el servidor JSON para aplicar los cambios.
+* Puedes acceder a los endpoints simulados desde `http://localhost:3000/products`.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🧑‍💻 Autor
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Proyecto desarrollado por Nicolas moina – para fines de aprendizaje o como base de proyectos CRUD.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
