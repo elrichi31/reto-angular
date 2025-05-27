@@ -67,3 +67,25 @@ button[type="button"] {
   gap: 20px;
   margin-top: 20px
 }
+
+@media (max-width: 768px) {
+  .labels-container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .buttons,
+  .form-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .form-container {
+    padding: 1rem;
+    max-width: 95%;
+  }
+}

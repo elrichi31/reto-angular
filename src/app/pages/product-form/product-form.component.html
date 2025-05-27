@@ -19,7 +19,8 @@
         <div class="labels-container">
             <div class="input-container">
                 <label>Descripción</label>
-                <input type="text" [(ngModel)]="product.description" name="description" [class.error]="errors.description">
+                <input type="text" [(ngModel)]="product.description" name="description"
+                    [class.error]="errors.description">
                 <div class="error-message" *ngIf="errors.description">{{ errors.description }}</div>
             </div>
             <div class="input-container">
@@ -29,13 +30,14 @@
             </div>
         </div>
 
-        <div  class="labels-container">
+        <div class="labels-container">
             <div class="input-container">
                 <label>Fecha de Liberación</label>
-                <input type="date" [(ngModel)]="product.date_release" name="date_release" [class.error]="errors.date_release">
+                <input type="date" [(ngModel)]="product.date_release" name="date_release"
+                    [class.error]="errors.date_release" [min]="today" (ngModelChange)="onDateReleaseChange($event)">
                 <div class="error-message" *ngIf="errors.date_release">{{ errors.date_release }}</div>
             </div>
-    
+
             <div class="input-container">
                 <label>Fecha de Revisión</label>
                 <input type="date" [(ngModel)]="product.date_revision" name="date_revision"

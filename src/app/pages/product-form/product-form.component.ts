@@ -115,7 +115,18 @@ export class ProductFormComponent {
     }
   }
 
-  goBack(){
+  goBack() {
     this.router.navigate(['/'])
   }
+
+  today = new Date().toISOString().split('T')[0]; // hoy en formato yyyy-mm-dd
+
+  onDateReleaseChange(date: string) {
+    if (date) {
+      const releaseDate = new Date(date);
+      releaseDate.setFullYear(releaseDate.getFullYear() + 1);
+      this.product.date_revision = releaseDate.toISOString().split('T')[0];
+    }
+  }
+
 }
