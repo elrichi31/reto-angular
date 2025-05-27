@@ -27,7 +27,6 @@ Esta es una aplicación web diseñada para gestionar productos. Permite **crear,
 
    ```bash
    cd api
-````
 
 3. Ejecuta el servidor con:
 
