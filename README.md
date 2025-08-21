@@ -27,14 +27,20 @@ Esta es una aplicación web diseñada para gestionar productos. Permite **crear,
 
    ```bash
    cd api
-
-3. Ejecuta el servidor con:
-
-   ```bash
-   json-server --watch db.json --port 3000
    ```
 
-   Esto iniciará una API RESTful en `http://localhost:3000`.
+3. Ejecuta el servidor con el siguiente comando:
+
+   ```bash
+   npx json-server db.json
+   ```
+
+   Este comando:
+   - Iniciará una API RESTful en `http://localhost:3000`
+   - No necesitas instalar json-server globalmente
+   - Utilizará la configuración del archivo db.json automáticamente
+
+   > 💡 **Nota**: Si prefieres un puerto específico, puedes usar: `npx json-server db.json --port 3000`
 
 ---
 

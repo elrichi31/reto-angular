@@ -7,7 +7,7 @@
     </a>
   </div>
 
-  <div style="overflow-x: auto;">
+  <div class="table-container">
     <table class="products-table">
       <thead>
         <tr>
@@ -28,9 +28,14 @@
           <td>{{ product.date_revision }}</td>
           <td class="actions">
             <div class="dropdown">
-              <div style="display: flex;">
+              <div class="three-dots" (click)="toggleMenu(product.id); $event.stopPropagation()">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="dropdown-menu" *ngIf="activeMenu === product.id">
                 <div class="menu-item" (click)="editProduct(product)">Editar</div>
-                <div class="menu-item" (click)="promptDelete(product)">Eliminar</div>
+                <div class="menu-item delete" (click)="promptDelete(product)">Eliminar</div>
               </div>
             </div>
           </td>
@@ -40,11 +45,10 @@
   </div>
 
   <div class="footer">
-    <p>{{ filteredProducts.length }} Resultados</p>
+    <p>{{ totalFilteredResults }} Resultados</p>
     <select class="custom-select" [(ngModel)]="itemsToShow" (change)="applyFilters()">
       <option *ngFor="let opt of [5, 10, 20]" [value]="opt">{{ opt }}</option>
     </select>
-
   </div>
 </div>
 

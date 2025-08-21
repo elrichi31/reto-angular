@@ -27,38 +27,65 @@ export class ProductFormComponent {
 
   errors: any = {};
 
+  validateField(field: string) {
+    const errors: any = {};
+
+    switch(field) {
+      case 'id':
+        if (!this.product.id || this.product.id.length < 3 || this.product.id.length > 10) {
+          errors.id = 'ID requerido (3-10 caracteres)';
+        }
+        break;
+      case 'name':
+        if (!this.product.name || this.product.name.length < 5 || this.product.name.length > 100) {
+          errors.name = 'Nombre requerido (5-100 caracteres)';
+        }
+        break;
+      case 'description':
+        if (!this.product.description || this.product.description.length < 10 || this.product.description.length > 200) {
+          errors.description = 'Descripción requerida (10-200 caracteres)';
+        }
+        break;
+      case 'logo':
+        if (!this.product.logo) {
+          errors.logo = 'Logo requerido';
+        } else {
+          try {
+            new URL(this.product.logo);
+          } catch {
+            errors.logo = 'URL no válida';
+          }
+        }
+        break;
+      case 'date_release':
+        const today = new Date().toISOString().split('T')[0];
+        if (!this.product.date_release || this.product.date_release < today) {
+          errors.date_release = 'Fecha debe ser hoy o futura';
+        }
+        break;
+      case 'date_revision':
+        const expectedRevision = new Date(this.product.date_release);
+        expectedRevision.setFullYear(expectedRevision.getFullYear() + 1);
+        const expected = expectedRevision.toISOString().split('T')[0];
+        if (this.product.date_revision !== expected) {
+          errors.date_revision = `Debe ser ${expected}`;
+        }
+        break;
+    }
+
+    // Actualiza solo el error del campo específico
+    if (errors[field]) {
+      this.errors[field] = errors[field];
+    } else {
+      delete this.errors[field];
+    }
+  }
+
   validate() {
     this.errors = {};
-
-    if (!this.product.id || this.product.id.length < 3 || this.product.id.length > 10) {
-      this.errors.id = 'ID requerido (3-10 caracteres)';
-    }
-
-    if (!this.product.name || this.product.name.length < 5 || this.product.name.length > 100) {
-      this.errors.name = 'Nombre requerido (5-100 caracteres)';
-    }
-
-    if (!this.product.description || this.product.description.length < 10 || this.product.description.length > 200) {
-      this.errors.description = 'Descripción requerida (10-200 caracteres)';
-    }
-
-    if (!this.product.logo) {
-      this.errors.logo = 'Logo requerido';
-    }
-
-    const today = new Date().toISOString().split('T')[0];
-    if (!this.product.date_release || this.product.date_release < today) {
-      this.errors.date_release = 'Fecha debe ser hoy o futura';
-    }
-
-    const expectedRevision = new Date(this.product.date_release);
-    expectedRevision.setFullYear(expectedRevision.getFullYear() + 1);
-    const expected = expectedRevision.toISOString().split('T')[0];
-
-    if (this.product.date_revision !== expected) {
-      this.errors.date_revision = `Debe ser ${expected}`;
-    }
-
+    ['id', 'name', 'description', 'logo', 'date_release', 'date_revision'].forEach(field => {
+      this.validateField(field);
+    });
     return Object.keys(this.errors).length === 0;
   }
 

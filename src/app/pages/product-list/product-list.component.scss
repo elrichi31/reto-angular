@@ -68,7 +68,6 @@
 .actions {
   position: relative;
   overflow: visible;
-  /* asegúrate de que no haya clipping */
 }
 
 .dropdown {
@@ -76,45 +75,122 @@
   position: relative;
 }
 
-.dropdown i {
+.three-dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  gap: 3px;
+}
+
+.three-dots:hover {
+  background-color: #f5f5f5;
+}
+
+.three-dots span {
+  width: 4px;
+  height: 4px;
+  background-color: #666;
+  border-radius: 50%;
+  display: block;
+  transition: background-color 0.2s;
+}
+
+.three-dots:hover span {
+  background-color: #333;
+}
+
+.container {
+  overflow: visible !important;
+}
+
+.table-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: visible !important;
+}
+
+.products-table {
+  overflow: visible !important;
+}
+
+.actions {
+  position: relative;
+  overflow: visible !important;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  overflow: visible !important;
 }
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
-  right: 0;
+  top: -5px;
+  left: calc(100% + 5px);  // Cambiado de right a left
   background: white;
-  border: 1px solid #ccc;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
-  padding: 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  min-width: 120px;
-}
-
-.dropdown-menu button {
-  background: none;
-  border: none;
-  padding: 0.5rem;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
+  padding: 2px 0;  // Reducido el padding vertical
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 99999;
+  min-width: 100px;  // Reducido el ancho mínimo
+  animation: menuFadeIn 0.2s ease;
+  overflow: visible !important;
 }
 
 .menu-item {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+  padding: 6px 12px;  // Reducido el padding
+  font-size: 13px;    // Reducido el tamaño de fuente
 }
 
-.menu-item:last-child {
-  border-bottom: none;
+// Asegurarse de que la tabla y sus celdas no corten el contenido
+table, th, td {
+  overflow: visible !important;
+}
+
+// Ajustar el div de overflow-x auto para que no corte el menú
+div[style*="overflow-x: auto"] {
+  overflow: visible !important;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);  // Cambiado para que aparezca desde la izquierda
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.menu-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 14px;
+  text-align: left;
+  white-space: nowrap;
 }
 
 .menu-item:hover {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
+}
+
+.menu-item.delete {
+  color: #dc3545;
+}
+
+.menu-item.delete:hover {
+  background-color: #fff5f5;
 }
 
 .modal-backdrop {

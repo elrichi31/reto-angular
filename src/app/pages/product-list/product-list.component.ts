@@ -33,12 +33,15 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  totalFilteredResults = 0;
+
   applyFilters(): void {
     const filtered = this.allProducts.filter(product =>
       product.name.toLowerCase().includes(this.searchText.toLowerCase()) ||
       product.description.toLowerCase().includes(this.searchText.toLowerCase())
     );
 
+    this.totalFilteredResults = filtered.length;
     this.filteredProducts = filtered.slice(0, this.itemsToShow);
   }
 
@@ -49,9 +52,8 @@ export class ProductListComponent implements OnInit {
   }
 
   editProduct(product: Product) {
-    // Aquí puedes hacer navegación o abrir modal
-    this.router.navigate(['/form', product.id])
-    console.log('Editar:', product);
+    this.router.navigate(['/form', product.id]);
+    this.activeMenu = null;
   }
 
   @HostListener('document:click', ['$event'])
