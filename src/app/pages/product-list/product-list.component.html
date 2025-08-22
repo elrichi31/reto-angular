@@ -28,11 +28,7 @@
           <td>{{ product.date_revision }}</td>
           <td class="actions">
             <div class="dropdown">
-              <div class="three-dots" (click)="toggleMenu(product.id); $event.stopPropagation()">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+              <div class="three-dots" (click)="toggleMenu(product.id); $event.stopPropagation()">⋮</div>
               <div class="dropdown-menu" *ngIf="activeMenu === product.id">
                 <div class="menu-item" (click)="editProduct(product)">Editar</div>
                 <div class="menu-item delete" (click)="promptDelete(product)">Eliminar</div>
